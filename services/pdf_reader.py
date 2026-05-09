@@ -7,4 +7,3 @@ def extract_text(path):
         text += page.extract_text()
     return text
 
-    
