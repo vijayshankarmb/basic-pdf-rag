@@ -1,11 +1,10 @@
-from pdf_reader import extract_text
 
-def split_init_chunks(text, chunnk_size=500, overlap=50):
+def split_into_chunks(text, chunk_size=500, overlap=50):
     chunks = []
     start = 0
 
     while start < len(text):
-        end = start + chunnk_size
+        end = start + chunk_size
         chunk = text[start:end]
         chunks.append(chunk)
 
