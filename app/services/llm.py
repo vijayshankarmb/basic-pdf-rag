@@ -1,5 +1,5 @@
 import ollama
-from vector_storage import query_chromadb
+from services.vector_storage import query_chromadb
 
 def generate_llm_answer(query):
 
@@ -17,7 +17,6 @@ def generate_llm_answer(query):
     ])
     return response['message']['content']
 
-result = generate_llm_answer("what is python")
-print(result)
+
 
 

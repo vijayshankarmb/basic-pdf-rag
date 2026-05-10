@@ -1,5 +1,6 @@
 
 from fastapi import FastAPI
+from routes.rag import router
 
 app = FastAPI()
 
@@ -7,6 +8,6 @@ app = FastAPI()
 def main():
     return {"message": "Hello from pdf-rag!"}
 
-if __name__ == "__main__":
-    main()
+app.include_router(router)
+
 
