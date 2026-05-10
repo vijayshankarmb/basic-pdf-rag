@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "chromadb>=1.5.9",
+    "fastapi[standard]>=0.136.1",
     "ollama>=0.6.2",
     "pypdf>=6.10.2",
 ]
