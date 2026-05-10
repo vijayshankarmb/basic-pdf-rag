@@ -1,13 +1,13 @@
 
 import ollama
 
-def chunks_into_embeddings(chunks):
-    embedding = []
+def generate_embeddings(chunks):
+    embeddings = []
     for chunk in chunks:
         response = ollama.embeddings(
             model="nomic-embed-text",
             prompt=chunk
         )
-        embedding.append(response['embedding'])
-    return embedding
+        embeddings.append(response['embedding'])
+    return embeddings
 
