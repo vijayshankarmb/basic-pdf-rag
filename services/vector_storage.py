@@ -1,9 +1,10 @@
 import chromadb
 
-client = chromadb.Client()
+client = chromadb.PersistentClient(path="db")
+
+collection = client.get_or_create_collection(name="pdf-chunks")
 
 def store_in_chromadb(chunks, embeddings):
-    collection = client.get_or_create_collection(name="pdf-chunks")
     collection.add(
         ids = [str(i) for i in range(len(chunks))],
         documents=chunks,
@@ -11,7 +12,7 @@ def store_in_chromadb(chunks, embeddings):
     )
     return collection
 
-def query_chromadb(collection, query_embedding, n_results):
+def query_chromadb(query_embedding, n_results):
     results = collection.query(
         query_embeddings=[query_embedding],
         n_results=n_results
